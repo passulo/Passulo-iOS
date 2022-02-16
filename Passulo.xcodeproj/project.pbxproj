@@ -16,6 +16,10 @@
 		DD4F6A5227BD2BB700F1EBDD /* PassuloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A5127BD2BB700F1EBDD /* PassuloTests.swift */; };
 		DD4F6A5C27BD2BB700F1EBDD /* PassuloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A5B27BD2BB700F1EBDD /* PassuloUITests.swift */; };
 		DD4F6A5E27BD2BB700F1EBDD /* PassuloUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A5D27BD2BB700F1EBDD /* PassuloUITestsLaunchTests.swift */; };
+		DD4F6A6C27BD2BFE00F1EBDD /* Paseto in Frameworks */ = {isa = PBXBuildFile; productRef = DD4F6A6B27BD2BFE00F1EBDD /* Paseto */; };
+		DD4F6A6F27BD2C3A00F1EBDD /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = DD4F6A6E27BD2C3A00F1EBDD /* CodeScanner */; };
+		DD4F6A7527BD2D5900F1EBDD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4F6A7427BD2D5900F1EBDD /* CloudKit.framework */; };
+		DD4F6A7827BD305C00F1EBDD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD4F6A7727BD305C00F1EBDD /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,9 @@
 		DD4F6A5727BD2BB700F1EBDD /* PassuloUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PassuloUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD4F6A5B27BD2BB700F1EBDD /* PassuloUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassuloUITests.swift; sourceTree = "<group>"; };
 		DD4F6A5D27BD2BB700F1EBDD /* PassuloUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassuloUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DD4F6A7227BD2D1C00F1EBDD /* Passulo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Passulo.entitlements; sourceTree = "<group>"; };
+		DD4F6A7427BD2D5900F1EBDD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		DD4F6A7627BD2D7F00F1EBDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +62,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD4F6A7527BD2D5900F1EBDD /* CloudKit.framework in Frameworks */,
+				DD4F6A6F27BD2C3A00F1EBDD /* CodeScanner in Frameworks */,
+				DD4F6A6C27BD2BFE00F1EBDD /* Paseto in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +92,7 @@
 				DD4F6A5027BD2BB700F1EBDD /* PassuloTests */,
 				DD4F6A5A27BD2BB700F1EBDD /* PassuloUITests */,
 				DD4F6A3927BD2BB700F1EBDD /* Products */,
+				DD4F6A7327BD2D5900F1EBDD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +109,8 @@
 		DD4F6A3A27BD2BB700F1EBDD /* Passulo */ = {
 			isa = PBXGroup;
 			children = (
+				DD4F6A7627BD2D7F00F1EBDD /* Info.plist */,
+				DD4F6A7227BD2D1C00F1EBDD /* Passulo.entitlements */,
 				DD4F6A3B27BD2BB700F1EBDD /* PassuloApp.swift */,
 				DD4F6A3D27BD2BB700F1EBDD /* ContentView.swift */,
 				DD4F6A3F27BD2BB700F1EBDD /* Assets.xcassets */,
@@ -133,6 +146,14 @@
 			path = PassuloUITests;
 			sourceTree = "<group>";
 		};
+		DD4F6A7327BD2D5900F1EBDD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD4F6A7427BD2D5900F1EBDD /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,6 +170,10 @@
 			dependencies = (
 			);
 			name = Passulo;
+			packageProductDependencies = (
+				DD4F6A6B27BD2BFE00F1EBDD /* Paseto */,
+				DD4F6A6E27BD2C3A00F1EBDD /* CodeScanner */,
+			);
 			productName = Passulo;
 			productReference = DD4F6A3827BD2BB700F1EBDD /* Passulo.app */;
 			productType = "com.apple.product-type.application";
@@ -221,6 +246,10 @@
 				Base,
 			);
 			mainGroup = DD4F6A2F27BD2BB600F1EBDD;
+			packageReferences = (
+				DD4F6A6A27BD2BFE00F1EBDD /* XCRemoteSwiftPackageReference "swift-paseto" */,
+				DD4F6A6D27BD2C3A00F1EBDD /* XCRemoteSwiftPackageReference "CodeScanner" */,
+			);
 			productRefGroup = DD4F6A3927BD2BB700F1EBDD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -239,6 +268,7 @@
 			files = (
 				DD4F6A4327BD2BB700F1EBDD /* Preview Assets.xcassets in Resources */,
 				DD4F6A4027BD2BB700F1EBDD /* Assets.xcassets in Resources */,
+				DD4F6A7827BD305C00F1EBDD /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,12 +454,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Passulo/Passulo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Passulo/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MD9DV36EY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Passulo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -453,12 +485,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Passulo/Passulo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Passulo/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MD9DV36EY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Passulo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -593,6 +627,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DD4F6A6A27BD2BFE00F1EBDD /* XCRemoteSwiftPackageReference "swift-paseto" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aidantwoods/swift-paseto";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		DD4F6A6D27BD2C3A00F1EBDD /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DD4F6A6B27BD2BFE00F1EBDD /* Paseto */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD4F6A6A27BD2BFE00F1EBDD /* XCRemoteSwiftPackageReference "swift-paseto" */;
+			productName = Paseto;
+		};
+		DD4F6A6E27BD2C3A00F1EBDD /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD4F6A6D27BD2C3A00F1EBDD /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		DD4F6A4627BD2BB700F1EBDD /* Passulo.xcdatamodeld */ = {
