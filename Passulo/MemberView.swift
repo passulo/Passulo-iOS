@@ -11,10 +11,10 @@ struct MemberView: View {
 
     init(item: Item) {
         if let url = item.url,
-           let claims = PasetoHelper().decode(url: url)
+           let message = PasetoHelper.decode(url: url)
         {
-            self.claims = claims
-            self.verified = true
+            self.claims = PassuloClaims(claims: message.payload.claims)
+            self.verified = PasetoHelper.verifySignature(message: message)
         } else {
             self.claims = PassuloClaims(claims: [:])
             self.verified = false

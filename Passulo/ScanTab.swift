@@ -62,9 +62,10 @@ struct ScanTab: View {
         claims = nil
         verified = nil
 
-        if let claims = PasetoHelper().decode(url: url) {
+        if let message = PasetoHelper.decode(url: url) {
+            let claims = PassuloClaims(claims: message.payload.claims)
             self.claims = claims
-            verified = true
+            verified = PasetoHelper.verifySignature(message: message)
             addItem(url: url.absoluteString, claims: claims)
         }
     }
