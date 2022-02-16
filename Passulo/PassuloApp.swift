@@ -1,10 +1,3 @@
-//
-//  PassuloApp.swift
-//  Passulo
-//
-//  Created by Jannik Arndt on 16.02.22.
-//
-
 import SwiftUI
 
 @main
@@ -13,8 +6,18 @@ struct PassuloApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            TabView {
+                ScanTab()
+                    .tabItem {
+                        Label("Scan", systemImage: "camera")
+                    }
+
+                HistoryTab()
+                    .tabItem {
+                        Label("Verlauf", systemImage: "list.dash")
+                    }
+            }
+            .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DD4F6A3C27BD2BB700F1EBDD /* PassuloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A3B27BD2BB700F1EBDD /* PassuloApp.swift */; };
-		DD4F6A3E27BD2BB700F1EBDD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A3D27BD2BB700F1EBDD /* ContentView.swift */; };
 		DD4F6A4027BD2BB700F1EBDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD4F6A3F27BD2BB700F1EBDD /* Assets.xcassets */; };
 		DD4F6A4327BD2BB700F1EBDD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD4F6A4227BD2BB700F1EBDD /* Preview Assets.xcassets */; };
 		DD4F6A4527BD2BB700F1EBDD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A4427BD2BB700F1EBDD /* Persistence.swift */; };
@@ -19,7 +18,13 @@
 		DD4F6A6C27BD2BFE00F1EBDD /* Paseto in Frameworks */ = {isa = PBXBuildFile; productRef = DD4F6A6B27BD2BFE00F1EBDD /* Paseto */; };
 		DD4F6A6F27BD2C3A00F1EBDD /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = DD4F6A6E27BD2C3A00F1EBDD /* CodeScanner */; };
 		DD4F6A7527BD2D5900F1EBDD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4F6A7427BD2D5900F1EBDD /* CloudKit.framework */; };
-		DD4F6A7827BD305C00F1EBDD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD4F6A7727BD305C00F1EBDD /* Info.plist */; };
+		DD4F6A7827BD305C00F1EBDD /* (null) in Resources */ = {isa = PBXBuildFile; };
+		DD4F6A7C27BD31F800F1EBDD /* HistoryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A7927BD31F700F1EBDD /* HistoryTab.swift */; };
+		DD4F6A7D27BD31F800F1EBDD /* VerifiedClaim.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A7A27BD31F800F1EBDD /* VerifiedClaim.swift */; };
+		DD4F6A7E27BD31F800F1EBDD /* ScanTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A7B27BD31F800F1EBDD /* ScanTab.swift */; };
+		DD4F6A8127BD321F00F1EBDD /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A7F27BD321F00F1EBDD /* MemberView.swift */; };
+		DD4F6A8227BD321F00F1EBDD /* PasetoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A8027BD321F00F1EBDD /* PasetoHelper.swift */; };
+		DD4F6A8427BD396E00F1EBDD /* PassuloClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A8327BD396E00F1EBDD /* PassuloClaims.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +47,6 @@
 /* Begin PBXFileReference section */
 		DD4F6A3827BD2BB700F1EBDD /* Passulo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Passulo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD4F6A3B27BD2BB700F1EBDD /* PassuloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassuloApp.swift; sourceTree = "<group>"; };
-		DD4F6A3D27BD2BB700F1EBDD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DD4F6A3F27BD2BB700F1EBDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD4F6A4227BD2BB700F1EBDD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DD4F6A4427BD2BB700F1EBDD /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -55,6 +59,12 @@
 		DD4F6A7227BD2D1C00F1EBDD /* Passulo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Passulo.entitlements; sourceTree = "<group>"; };
 		DD4F6A7427BD2D5900F1EBDD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		DD4F6A7627BD2D7F00F1EBDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD4F6A7927BD31F700F1EBDD /* HistoryTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTab.swift; sourceTree = "<group>"; };
+		DD4F6A7A27BD31F800F1EBDD /* VerifiedClaim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifiedClaim.swift; sourceTree = "<group>"; };
+		DD4F6A7B27BD31F800F1EBDD /* ScanTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanTab.swift; sourceTree = "<group>"; };
+		DD4F6A7F27BD321F00F1EBDD /* MemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
+		DD4F6A8027BD321F00F1EBDD /* PasetoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasetoHelper.swift; sourceTree = "<group>"; };
+		DD4F6A8327BD396E00F1EBDD /* PassuloClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassuloClaims.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +122,12 @@
 				DD4F6A7627BD2D7F00F1EBDD /* Info.plist */,
 				DD4F6A7227BD2D1C00F1EBDD /* Passulo.entitlements */,
 				DD4F6A3B27BD2BB700F1EBDD /* PassuloApp.swift */,
-				DD4F6A3D27BD2BB700F1EBDD /* ContentView.swift */,
+				DD4F6A7927BD31F700F1EBDD /* HistoryTab.swift */,
+				DD4F6A7B27BD31F800F1EBDD /* ScanTab.swift */,
+				DD4F6A7A27BD31F800F1EBDD /* VerifiedClaim.swift */,
+				DD4F6A7F27BD321F00F1EBDD /* MemberView.swift */,
+				DD4F6A8327BD396E00F1EBDD /* PassuloClaims.swift */,
+				DD4F6A8027BD321F00F1EBDD /* PasetoHelper.swift */,
 				DD4F6A3F27BD2BB700F1EBDD /* Assets.xcassets */,
 				DD4F6A4427BD2BB700F1EBDD /* Persistence.swift */,
 				DD4F6A4627BD2BB700F1EBDD /* Passulo.xcdatamodeld */,
@@ -268,7 +283,7 @@
 			files = (
 				DD4F6A4327BD2BB700F1EBDD /* Preview Assets.xcassets in Resources */,
 				DD4F6A4027BD2BB700F1EBDD /* Assets.xcassets in Resources */,
-				DD4F6A7827BD305C00F1EBDD /* Info.plist in Resources */,
+				DD4F6A7827BD305C00F1EBDD /* (null) in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,9 +308,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD4F6A7C27BD31F800F1EBDD /* HistoryTab.swift in Sources */,
+				DD4F6A8227BD321F00F1EBDD /* PasetoHelper.swift in Sources */,
 				DD4F6A4527BD2BB700F1EBDD /* Persistence.swift in Sources */,
-				DD4F6A3E27BD2BB700F1EBDD /* ContentView.swift in Sources */,
+				DD4F6A8427BD396E00F1EBDD /* PassuloClaims.swift in Sources */,
+				DD4F6A8127BD321F00F1EBDD /* MemberView.swift in Sources */,
+				DD4F6A7E27BD31F800F1EBDD /* ScanTab.swift in Sources */,
 				DD4F6A3C27BD2BB700F1EBDD /* PassuloApp.swift in Sources */,
+				DD4F6A7D27BD31F800F1EBDD /* VerifiedClaim.swift in Sources */,
 				DD4F6A4827BD2BB700F1EBDD /* Passulo.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,9 +482,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Passulo/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Scan QR codes on passes to validate them.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -493,9 +515,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Passulo/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Scan QR codes on passes to validate them.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
