@@ -1,0 +1,611 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DD4F6A3C27BD2BB700F1EBDD /* PassuloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A3B27BD2BB700F1EBDD /* PassuloApp.swift */; };
+		DD4F6A3E27BD2BB700F1EBDD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A3D27BD2BB700F1EBDD /* ContentView.swift */; };
+		DD4F6A4027BD2BB700F1EBDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD4F6A3F27BD2BB700F1EBDD /* Assets.xcassets */; };
+		DD4F6A4327BD2BB700F1EBDD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD4F6A4227BD2BB700F1EBDD /* Preview Assets.xcassets */; };
+		DD4F6A4527BD2BB700F1EBDD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A4427BD2BB700F1EBDD /* Persistence.swift */; };
+		DD4F6A4827BD2BB700F1EBDD /* Passulo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A4627BD2BB700F1EBDD /* Passulo.xcdatamodeld */; };
+		DD4F6A5227BD2BB700F1EBDD /* PassuloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A5127BD2BB700F1EBDD /* PassuloTests.swift */; };
+		DD4F6A5C27BD2BB700F1EBDD /* PassuloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A5B27BD2BB700F1EBDD /* PassuloUITests.swift */; };
+		DD4F6A5E27BD2BB700F1EBDD /* PassuloUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A5D27BD2BB700F1EBDD /* PassuloUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DD4F6A4E27BD2BB700F1EBDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD4F6A3027BD2BB600F1EBDD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD4F6A3727BD2BB700F1EBDD;
+			remoteInfo = Passulo;
+		};
+		DD4F6A5827BD2BB700F1EBDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD4F6A3027BD2BB600F1EBDD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD4F6A3727BD2BB700F1EBDD;
+			remoteInfo = Passulo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DD4F6A3827BD2BB700F1EBDD /* Passulo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Passulo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD4F6A3B27BD2BB700F1EBDD /* PassuloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassuloApp.swift; sourceTree = "<group>"; };
+		DD4F6A3D27BD2BB700F1EBDD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DD4F6A3F27BD2BB700F1EBDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD4F6A4227BD2BB700F1EBDD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DD4F6A4427BD2BB700F1EBDD /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		DD4F6A4727BD2BB700F1EBDD /* Passulo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Passulo.xcdatamodel; sourceTree = "<group>"; };
+		DD4F6A4D27BD2BB700F1EBDD /* PassuloTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PassuloTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD4F6A5127BD2BB700F1EBDD /* PassuloTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassuloTests.swift; sourceTree = "<group>"; };
+		DD4F6A5727BD2BB700F1EBDD /* PassuloUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PassuloUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD4F6A5B27BD2BB700F1EBDD /* PassuloUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassuloUITests.swift; sourceTree = "<group>"; };
+		DD4F6A5D27BD2BB700F1EBDD /* PassuloUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassuloUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD4F6A3527BD2BB700F1EBDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD4F6A4A27BD2BB700F1EBDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD4F6A5427BD2BB700F1EBDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DD4F6A2F27BD2BB600F1EBDD = {
+			isa = PBXGroup;
+			children = (
+				DD4F6A3A27BD2BB700F1EBDD /* Passulo */,
+				DD4F6A5027BD2BB700F1EBDD /* PassuloTests */,
+				DD4F6A5A27BD2BB700F1EBDD /* PassuloUITests */,
+				DD4F6A3927BD2BB700F1EBDD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DD4F6A3927BD2BB700F1EBDD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD4F6A3827BD2BB700F1EBDD /* Passulo.app */,
+				DD4F6A4D27BD2BB700F1EBDD /* PassuloTests.xctest */,
+				DD4F6A5727BD2BB700F1EBDD /* PassuloUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD4F6A3A27BD2BB700F1EBDD /* Passulo */ = {
+			isa = PBXGroup;
+			children = (
+				DD4F6A3B27BD2BB700F1EBDD /* PassuloApp.swift */,
+				DD4F6A3D27BD2BB700F1EBDD /* ContentView.swift */,
+				DD4F6A3F27BD2BB700F1EBDD /* Assets.xcassets */,
+				DD4F6A4427BD2BB700F1EBDD /* Persistence.swift */,
+				DD4F6A4627BD2BB700F1EBDD /* Passulo.xcdatamodeld */,
+				DD4F6A4127BD2BB700F1EBDD /* Preview Content */,
+			);
+			path = Passulo;
+			sourceTree = "<group>";
+		};
+		DD4F6A4127BD2BB700F1EBDD /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				DD4F6A4227BD2BB700F1EBDD /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DD4F6A5027BD2BB700F1EBDD /* PassuloTests */ = {
+			isa = PBXGroup;
+			children = (
+				DD4F6A5127BD2BB700F1EBDD /* PassuloTests.swift */,
+			);
+			path = PassuloTests;
+			sourceTree = "<group>";
+		};
+		DD4F6A5A27BD2BB700F1EBDD /* PassuloUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DD4F6A5B27BD2BB700F1EBDD /* PassuloUITests.swift */,
+				DD4F6A5D27BD2BB700F1EBDD /* PassuloUITestsLaunchTests.swift */,
+			);
+			path = PassuloUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DD4F6A3727BD2BB700F1EBDD /* Passulo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD4F6A6127BD2BB700F1EBDD /* Build configuration list for PBXNativeTarget "Passulo" */;
+			buildPhases = (
+				DD4F6A3427BD2BB700F1EBDD /* Sources */,
+				DD4F6A3527BD2BB700F1EBDD /* Frameworks */,
+				DD4F6A3627BD2BB700F1EBDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Passulo;
+			productName = Passulo;
+			productReference = DD4F6A3827BD2BB700F1EBDD /* Passulo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DD4F6A4C27BD2BB700F1EBDD /* PassuloTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD4F6A6427BD2BB700F1EBDD /* Build configuration list for PBXNativeTarget "PassuloTests" */;
+			buildPhases = (
+				DD4F6A4927BD2BB700F1EBDD /* Sources */,
+				DD4F6A4A27BD2BB700F1EBDD /* Frameworks */,
+				DD4F6A4B27BD2BB700F1EBDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD4F6A4F27BD2BB700F1EBDD /* PBXTargetDependency */,
+			);
+			name = PassuloTests;
+			productName = PassuloTests;
+			productReference = DD4F6A4D27BD2BB700F1EBDD /* PassuloTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DD4F6A5627BD2BB700F1EBDD /* PassuloUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD4F6A6727BD2BB700F1EBDD /* Build configuration list for PBXNativeTarget "PassuloUITests" */;
+			buildPhases = (
+				DD4F6A5327BD2BB700F1EBDD /* Sources */,
+				DD4F6A5427BD2BB700F1EBDD /* Frameworks */,
+				DD4F6A5527BD2BB700F1EBDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD4F6A5927BD2BB700F1EBDD /* PBXTargetDependency */,
+			);
+			name = PassuloUITests;
+			productName = PassuloUITests;
+			productReference = DD4F6A5727BD2BB700F1EBDD /* PassuloUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD4F6A3027BD2BB600F1EBDD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					DD4F6A3727BD2BB700F1EBDD = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					DD4F6A4C27BD2BB700F1EBDD = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = DD4F6A3727BD2BB700F1EBDD;
+					};
+					DD4F6A5627BD2BB700F1EBDD = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = DD4F6A3727BD2BB700F1EBDD;
+					};
+				};
+			};
+			buildConfigurationList = DD4F6A3327BD2BB600F1EBDD /* Build configuration list for PBXProject "Passulo" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DD4F6A2F27BD2BB600F1EBDD;
+			productRefGroup = DD4F6A3927BD2BB700F1EBDD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD4F6A3727BD2BB700F1EBDD /* Passulo */,
+				DD4F6A4C27BD2BB700F1EBDD /* PassuloTests */,
+				DD4F6A5627BD2BB700F1EBDD /* PassuloUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD4F6A3627BD2BB700F1EBDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD4F6A4327BD2BB700F1EBDD /* Preview Assets.xcassets in Resources */,
+				DD4F6A4027BD2BB700F1EBDD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD4F6A4B27BD2BB700F1EBDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD4F6A5527BD2BB700F1EBDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD4F6A3427BD2BB700F1EBDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD4F6A4527BD2BB700F1EBDD /* Persistence.swift in Sources */,
+				DD4F6A3E27BD2BB700F1EBDD /* ContentView.swift in Sources */,
+				DD4F6A3C27BD2BB700F1EBDD /* PassuloApp.swift in Sources */,
+				DD4F6A4827BD2BB700F1EBDD /* Passulo.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD4F6A4927BD2BB700F1EBDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD4F6A5227BD2BB700F1EBDD /* PassuloTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD4F6A5327BD2BB700F1EBDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD4F6A5E27BD2BB700F1EBDD /* PassuloUITestsLaunchTests.swift in Sources */,
+				DD4F6A5C27BD2BB700F1EBDD /* PassuloUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DD4F6A4F27BD2BB700F1EBDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD4F6A3727BD2BB700F1EBDD /* Passulo */;
+			targetProxy = DD4F6A4E27BD2BB700F1EBDD /* PBXContainerItemProxy */;
+		};
+		DD4F6A5927BD2BB700F1EBDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD4F6A3727BD2BB700F1EBDD /* Passulo */;
+			targetProxy = DD4F6A5827BD2BB700F1EBDD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DD4F6A5F27BD2BB700F1EBDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DD4F6A6027BD2BB700F1EBDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DD4F6A6227BD2BB700F1EBDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Passulo/Preview Content\"";
+				DEVELOPMENT_TEAM = 9MD9DV36EY;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.passulo.Passulo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DD4F6A6327BD2BB700F1EBDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Passulo/Preview Content\"";
+				DEVELOPMENT_TEAM = 9MD9DV36EY;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.passulo.Passulo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DD4F6A6527BD2BB700F1EBDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9MD9DV36EY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.passulo.PassuloTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Passulo.app/Passulo";
+			};
+			name = Debug;
+		};
+		DD4F6A6627BD2BB700F1EBDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9MD9DV36EY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.passulo.PassuloTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Passulo.app/Passulo";
+			};
+			name = Release;
+		};
+		DD4F6A6827BD2BB700F1EBDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9MD9DV36EY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.passulo.PassuloUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Passulo;
+			};
+			name = Debug;
+		};
+		DD4F6A6927BD2BB700F1EBDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9MD9DV36EY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.passulo.PassuloUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Passulo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD4F6A3327BD2BB600F1EBDD /* Build configuration list for PBXProject "Passulo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD4F6A5F27BD2BB700F1EBDD /* Debug */,
+				DD4F6A6027BD2BB700F1EBDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD4F6A6127BD2BB700F1EBDD /* Build configuration list for PBXNativeTarget "Passulo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD4F6A6227BD2BB700F1EBDD /* Debug */,
+				DD4F6A6327BD2BB700F1EBDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD4F6A6427BD2BB700F1EBDD /* Build configuration list for PBXNativeTarget "PassuloTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD4F6A6527BD2BB700F1EBDD /* Debug */,
+				DD4F6A6627BD2BB700F1EBDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD4F6A6727BD2BB700F1EBDD /* Build configuration list for PBXNativeTarget "PassuloUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD4F6A6827BD2BB700F1EBDD /* Debug */,
+				DD4F6A6927BD2BB700F1EBDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DD4F6A4627BD2BB700F1EBDD /* Passulo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DD4F6A4727BD2BB700F1EBDD /* Passulo.xcdatamodel */,
+			);
+			currentVersion = DD4F6A4727BD2BB700F1EBDD /* Passulo.xcdatamodel */;
+			path = Passulo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DD4F6A3027BD2BB600F1EBDD /* Project object */;
+}
