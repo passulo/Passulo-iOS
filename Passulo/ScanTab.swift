@@ -63,6 +63,7 @@ struct ScanTab: View {
                 Spacer()
             }
             .navigationTitle("Passulo")
+            .navigationViewStyle(.automatic)
         }
         .onOpenURL { checkUrl(url: $0) }
     }
