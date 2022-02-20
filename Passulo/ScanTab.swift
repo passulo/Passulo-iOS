@@ -1,12 +1,11 @@
 import CodeScanner
 import CoreData
-import Paseto
 import SwiftUI
 
 struct ScanTab: View {
     @Environment(\.managedObjectContext) private var viewContext
 
-    @State var claims: PassuloClaims? = nil
+    @State var token: Token? = nil
     @State var verified: Bool? = nil
     @State var helpfulText: String = "Scanne einen QR Code mit der Kamera."
 
@@ -28,16 +27,26 @@ struct ScanTab: View {
                 .frame(maxHeight: 400)
 
                 VStack {
-                    if let claims = claims, let verified = verified {
+                    if let token = token, let verified = verified {
                         NavigationLink {
-                            MemberView(claims: claims, verified: verified)
+                            MemberView(token: token, verified: verified)
                         } label: {
                             VStack {
-                                VerifiedClaim(title: "Name", value: claims.fullname, verified: verified)
-                                VerifiedClaim(title: "Mitgliedsnummer", value: claims.number, verified: verified)
-                                VerifiedClaim(title: "Verband", value: claims.association, verified: verified)
-                                VerifiedClaim(title: "Firma", value: claims.company, verified: verified)
-                                VerifiedClaim(title: "Gültig bis", value: claims.validUntil.formatted, verified: verified)
+                                VerifiedClaim(title: "Name", value: token.fullname)
+                                VerifiedClaim(title: "Mitgliedsnummer", value: token.number)
+                                VerifiedClaim(title: "Verband", value: token.association)
+                                VerifiedClaim(title: "Firma", value: token.company)
+                                VerifiedClaim(title: "Gültig bis", value: token.validUntil.formatted)
+                                HStack {
+                                    Text("Validiert")
+                                    Spacer()
+                                    if verified == true {
+                                        Image(systemName: "checkmark.seal").foregroundColor(Color.green)
+                                    } else {
+                                        Image(systemName: "nosign").foregroundColor(Color.red)
+                                    }
+                                }
+                                Text(helpfulText)
                             }
                         }
 
@@ -59,25 +68,23 @@ struct ScanTab: View {
     }
 
     private func checkUrl(url: URL) {
-        claims = nil
-        verified = nil
-
-        if let message = PasetoHelper.decode(url: url) {
-            let claims = PassuloClaims(claims: message.payload.claims)
-            self.claims = claims
-            verified = PasetoHelper.verifySignature(message: message)
-            addItem(url: url.absoluteString, claims: claims)
+        let message = TokenHelper.decode(url: url)
+        token = message.token
+        verified = message.valid
+        helpfulText = message.error ?? ""
+        if let token = token {
+            addItem(url: url.absoluteString, token: token)
         }
     }
 
-    private func addItem(url: String, claims: PassuloClaims) {
+    private func addItem(url: String, token: Token) {
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
             newItem.url = URL(string: url)
-            newItem.name = claims.fullname
-            newItem.association = claims.association
-            newItem.number = claims.number
+            newItem.name = token.fullname
+            newItem.association = token.association
+            newItem.number = token.number
 
             do {
                 try viewContext.save()

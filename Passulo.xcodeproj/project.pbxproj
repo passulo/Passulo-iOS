@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD2B9CCE27C2B89C0081DA83 /* Base64url.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2B9CCD27C2B89C0081DA83 /* Base64url.swift */; };
+		DD2B9CD027C2B9620081DA83 /* token.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2B9CCF27C2B9620081DA83 /* token.pb.swift */; };
+		DD2B9CD327C2B9E60081DA83 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = DD2B9CD227C2B9E60081DA83 /* SwiftProtobuf */; };
 		DD4F6A3C27BD2BB700F1EBDD /* PassuloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A3B27BD2BB700F1EBDD /* PassuloApp.swift */; };
 		DD4F6A4027BD2BB700F1EBDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD4F6A3F27BD2BB700F1EBDD /* Assets.xcassets */; };
 		DD4F6A4327BD2BB700F1EBDD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD4F6A4227BD2BB700F1EBDD /* Preview Assets.xcassets */; };
@@ -15,7 +18,6 @@
 		DD4F6A5227BD2BB700F1EBDD /* PassuloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A5127BD2BB700F1EBDD /* PassuloTests.swift */; };
 		DD4F6A5C27BD2BB700F1EBDD /* PassuloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A5B27BD2BB700F1EBDD /* PassuloUITests.swift */; };
 		DD4F6A5E27BD2BB700F1EBDD /* PassuloUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A5D27BD2BB700F1EBDD /* PassuloUITestsLaunchTests.swift */; };
-		DD4F6A6C27BD2BFE00F1EBDD /* Paseto in Frameworks */ = {isa = PBXBuildFile; productRef = DD4F6A6B27BD2BFE00F1EBDD /* Paseto */; };
 		DD4F6A6F27BD2C3A00F1EBDD /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = DD4F6A6E27BD2C3A00F1EBDD /* CodeScanner */; };
 		DD4F6A7527BD2D5900F1EBDD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4F6A7427BD2D5900F1EBDD /* CloudKit.framework */; };
 		DD4F6A7827BD305C00F1EBDD /* (null) in Resources */ = {isa = PBXBuildFile; };
@@ -23,8 +25,8 @@
 		DD4F6A7D27BD31F800F1EBDD /* VerifiedClaim.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A7A27BD31F800F1EBDD /* VerifiedClaim.swift */; };
 		DD4F6A7E27BD31F800F1EBDD /* ScanTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A7B27BD31F800F1EBDD /* ScanTab.swift */; };
 		DD4F6A8127BD321F00F1EBDD /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A7F27BD321F00F1EBDD /* MemberView.swift */; };
-		DD4F6A8227BD321F00F1EBDD /* PasetoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A8027BD321F00F1EBDD /* PasetoHelper.swift */; };
-		DD4F6A8427BD396E00F1EBDD /* PassuloClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A8327BD396E00F1EBDD /* PassuloClaims.swift */; };
+		DD4F6A8227BD321F00F1EBDD /* TokenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A8027BD321F00F1EBDD /* TokenHelper.swift */; };
+		DD4F6A8427BD396E00F1EBDD /* TokenExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A8327BD396E00F1EBDD /* TokenExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD2B9CCD27C2B89C0081DA83 /* Base64url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base64url.swift; sourceTree = "<group>"; };
+		DD2B9CCF27C2B9620081DA83 /* token.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = token.pb.swift; sourceTree = "<group>"; };
 		DD4F6A3827BD2BB700F1EBDD /* Passulo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Passulo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD4F6A3B27BD2BB700F1EBDD /* PassuloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassuloApp.swift; sourceTree = "<group>"; };
 		DD4F6A3F27BD2BB700F1EBDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,8 +67,8 @@
 		DD4F6A7A27BD31F800F1EBDD /* VerifiedClaim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifiedClaim.swift; sourceTree = "<group>"; };
 		DD4F6A7B27BD31F800F1EBDD /* ScanTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanTab.swift; sourceTree = "<group>"; };
 		DD4F6A7F27BD321F00F1EBDD /* MemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
-		DD4F6A8027BD321F00F1EBDD /* PasetoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasetoHelper.swift; sourceTree = "<group>"; };
-		DD4F6A8327BD396E00F1EBDD /* PassuloClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassuloClaims.swift; sourceTree = "<group>"; };
+		DD4F6A8027BD321F00F1EBDD /* TokenHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenHelper.swift; sourceTree = "<group>"; };
+		DD4F6A8327BD396E00F1EBDD /* TokenExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +78,7 @@
 			files = (
 				DD4F6A7527BD2D5900F1EBDD /* CloudKit.framework in Frameworks */,
 				DD4F6A6F27BD2C3A00F1EBDD /* CodeScanner in Frameworks */,
-				DD4F6A6C27BD2BFE00F1EBDD /* Paseto in Frameworks */,
+				DD2B9CD327C2B9E60081DA83 /* SwiftProtobuf in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD2B9CCC27C2B8910081DA83 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DD2B9CCD27C2B89C0081DA83 /* Base64url.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		DD4F6A2F27BD2BB600F1EBDD = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +131,7 @@
 		DD4F6A3A27BD2BB700F1EBDD /* Passulo */ = {
 			isa = PBXGroup;
 			children = (
+				DD2B9CCC27C2B8910081DA83 /* extensions */,
 				DD4F6A7627BD2D7F00F1EBDD /* Info.plist */,
 				DD4F6A7227BD2D1C00F1EBDD /* Passulo.entitlements */,
 				DD4F6A3B27BD2BB700F1EBDD /* PassuloApp.swift */,
@@ -126,8 +139,9 @@
 				DD4F6A7B27BD31F800F1EBDD /* ScanTab.swift */,
 				DD4F6A7A27BD31F800F1EBDD /* VerifiedClaim.swift */,
 				DD4F6A7F27BD321F00F1EBDD /* MemberView.swift */,
-				DD4F6A8327BD396E00F1EBDD /* PassuloClaims.swift */,
-				DD4F6A8027BD321F00F1EBDD /* PasetoHelper.swift */,
+				DD4F6A8327BD396E00F1EBDD /* TokenExtensions.swift */,
+				DD4F6A8027BD321F00F1EBDD /* TokenHelper.swift */,
+				DD2B9CCF27C2B9620081DA83 /* token.pb.swift */,
 				DD4F6A3F27BD2BB700F1EBDD /* Assets.xcassets */,
 				DD4F6A4427BD2BB700F1EBDD /* Persistence.swift */,
 				DD4F6A4627BD2BB700F1EBDD /* Passulo.xcdatamodeld */,
@@ -186,8 +200,8 @@
 			);
 			name = Passulo;
 			packageProductDependencies = (
-				DD4F6A6B27BD2BFE00F1EBDD /* Paseto */,
 				DD4F6A6E27BD2C3A00F1EBDD /* CodeScanner */,
+				DD2B9CD227C2B9E60081DA83 /* SwiftProtobuf */,
 			);
 			productName = Passulo;
 			productReference = DD4F6A3827BD2BB700F1EBDD /* Passulo.app */;
@@ -262,8 +276,8 @@
 			);
 			mainGroup = DD4F6A2F27BD2BB600F1EBDD;
 			packageReferences = (
-				DD4F6A6A27BD2BFE00F1EBDD /* XCRemoteSwiftPackageReference "swift-paseto" */,
 				DD4F6A6D27BD2C3A00F1EBDD /* XCRemoteSwiftPackageReference "CodeScanner" */,
+				DD2B9CD127C2B9E60081DA83 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
 			);
 			productRefGroup = DD4F6A3927BD2BB700F1EBDD /* Products */;
 			projectDirPath = "";
@@ -308,10 +322,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD2B9CCE27C2B89C0081DA83 /* Base64url.swift in Sources */,
 				DD4F6A7C27BD31F800F1EBDD /* HistoryTab.swift in Sources */,
-				DD4F6A8227BD321F00F1EBDD /* PasetoHelper.swift in Sources */,
+				DD4F6A8227BD321F00F1EBDD /* TokenHelper.swift in Sources */,
 				DD4F6A4527BD2BB700F1EBDD /* Persistence.swift in Sources */,
-				DD4F6A8427BD396E00F1EBDD /* PassuloClaims.swift in Sources */,
+				DD4F6A8427BD396E00F1EBDD /* TokenExtensions.swift in Sources */,
+				DD2B9CD027C2B9620081DA83 /* token.pb.swift in Sources */,
 				DD4F6A8127BD321F00F1EBDD /* MemberView.swift in Sources */,
 				DD4F6A7E27BD31F800F1EBDD /* ScanTab.swift in Sources */,
 				DD4F6A3C27BD2BB700F1EBDD /* PassuloApp.swift in Sources */,
@@ -653,12 +669,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		DD4F6A6A27BD2BFE00F1EBDD /* XCRemoteSwiftPackageReference "swift-paseto" */ = {
+		DD2B9CD127C2B9E60081DA83 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/aidantwoods/swift-paseto";
+			repositoryURL = "https://github.com/apple/swift-protobuf.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 		DD4F6A6D27BD2C3A00F1EBDD /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
@@ -672,10 +688,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DD4F6A6B27BD2BFE00F1EBDD /* Paseto */ = {
+		DD2B9CD227C2B9E60081DA83 /* SwiftProtobuf */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DD4F6A6A27BD2BFE00F1EBDD /* XCRemoteSwiftPackageReference "swift-paseto" */;
-			productName = Paseto;
+			package = DD2B9CD127C2B9E60081DA83 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
 		};
 		DD4F6A6E27BD2C3A00F1EBDD /* CodeScanner */ = {
 			isa = XCSwiftPackageProductDependency;
