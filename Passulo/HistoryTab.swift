@@ -12,7 +12,8 @@ struct HistoryTab: View {
             List {
                 ForEach(items) { item in
                     NavigationLink {
-                        MemberView(item: item)
+                        MemberView(url: item.url)
+
                     } label: {
                         HStack {
                             VStack(alignment: .leading) {

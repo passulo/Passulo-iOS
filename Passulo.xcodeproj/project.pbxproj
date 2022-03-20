@@ -10,6 +10,7 @@
 		DD2B9CCE27C2B89C0081DA83 /* Base64url.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2B9CCD27C2B89C0081DA83 /* Base64url.swift */; };
 		DD2B9CD027C2B9620081DA83 /* token.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2B9CCF27C2B9620081DA83 /* token.pb.swift */; };
 		DD2B9CD327C2B9E60081DA83 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = DD2B9CD227C2B9E60081DA83 /* SwiftProtobuf */; };
+		DD3D3CD527E77EA300AAB48D /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D3CD427E77EA300AAB48D /* URL.swift */; };
 		DD4F6A3C27BD2BB700F1EBDD /* PassuloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A3B27BD2BB700F1EBDD /* PassuloApp.swift */; };
 		DD4F6A4027BD2BB700F1EBDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD4F6A3F27BD2BB700F1EBDD /* Assets.xcassets */; };
 		DD4F6A4327BD2BB700F1EBDD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD4F6A4227BD2BB700F1EBDD /* Preview Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		DD4F6A8127BD321F00F1EBDD /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A7F27BD321F00F1EBDD /* MemberView.swift */; };
 		DD4F6A8227BD321F00F1EBDD /* TokenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A8027BD321F00F1EBDD /* TokenHelper.swift */; };
 		DD4F6A8427BD396E00F1EBDD /* TokenExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A8327BD396E00F1EBDD /* TokenExtensions.swift */; };
+		DDA8CAFE27D3DEA6005B08D0 /* KeyCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA8CAFD27D3DEA6005B08D0 /* KeyCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,7 @@
 /* Begin PBXFileReference section */
 		DD2B9CCD27C2B89C0081DA83 /* Base64url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base64url.swift; sourceTree = "<group>"; };
 		DD2B9CCF27C2B9620081DA83 /* token.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = token.pb.swift; sourceTree = "<group>"; };
+		DD3D3CD427E77EA300AAB48D /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		DD4F6A3827BD2BB700F1EBDD /* Passulo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Passulo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD4F6A3B27BD2BB700F1EBDD /* PassuloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassuloApp.swift; sourceTree = "<group>"; };
 		DD4F6A3F27BD2BB700F1EBDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,6 +72,7 @@
 		DD4F6A7F27BD321F00F1EBDD /* MemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		DD4F6A8027BD321F00F1EBDD /* TokenHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenHelper.swift; sourceTree = "<group>"; };
 		DD4F6A8327BD396E00F1EBDD /* TokenExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExtensions.swift; sourceTree = "<group>"; };
+		DDA8CAFD27D3DEA6005B08D0 /* KeyCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				DD2B9CCD27C2B89C0081DA83 /* Base64url.swift */,
+				DD3D3CD427E77EA300AAB48D /* URL.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -146,6 +151,7 @@
 				DD4F6A4427BD2BB700F1EBDD /* Persistence.swift */,
 				DD4F6A4627BD2BB700F1EBDD /* Passulo.xcdatamodeld */,
 				DD4F6A4127BD2BB700F1EBDD /* Preview Content */,
+				DDA8CAFD27D3DEA6005B08D0 /* KeyCache.swift */,
 			);
 			path = Passulo;
 			sourceTree = "<group>";
@@ -327,11 +333,13 @@
 				DD4F6A8227BD321F00F1EBDD /* TokenHelper.swift in Sources */,
 				DD4F6A4527BD2BB700F1EBDD /* Persistence.swift in Sources */,
 				DD4F6A8427BD396E00F1EBDD /* TokenExtensions.swift in Sources */,
+				DD3D3CD527E77EA300AAB48D /* URL.swift in Sources */,
 				DD2B9CD027C2B9620081DA83 /* token.pb.swift in Sources */,
 				DD4F6A8127BD321F00F1EBDD /* MemberView.swift in Sources */,
 				DD4F6A7E27BD31F800F1EBDD /* ScanTab.swift in Sources */,
 				DD4F6A3C27BD2BB700F1EBDD /* PassuloApp.swift in Sources */,
 				DD4F6A7D27BD31F800F1EBDD /* VerifiedClaim.swift in Sources */,
+				DDA8CAFE27D3DEA6005B08D0 /* KeyCache.swift in Sources */,
 				DD4F6A4827BD2BB700F1EBDD /* Passulo.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

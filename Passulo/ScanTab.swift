@@ -8,6 +8,7 @@ struct ScanTab: View {
     @State var token: Token? = nil
     @State var verified: Bool? = nil
     @State var helpfulText: String = "Scanne einen QR Code mit der Kamera."
+    @State var url: URL? = nil
 
     var body: some View {
         NavigationView {
@@ -16,6 +17,7 @@ struct ScanTab: View {
                     switch response {
                     case .success(let result):
                         if let url = URL(string: result.string) {
+                            self.url = url
                             checkUrl(url: url)
                         } else {
                             helpfulText = "Der Code enthält keine passende URL."
@@ -29,7 +31,7 @@ struct ScanTab: View {
                 VStack {
                     if let token = token, let verified = verified {
                         NavigationLink {
-                            MemberView(token: token, verified: verified)
+                            MemberView(url: self.url)
                         } label: {
                             VStack {
                                 VerifiedClaim(title: "Name", value: token.fullname)
@@ -69,12 +71,14 @@ struct ScanTab: View {
     }
 
     private func checkUrl(url: URL) {
-        let message = TokenHelper.decode(url: url)
-        token = message.token
-        verified = message.valid
-        helpfulText = message.error ?? ""
-        if let token = token {
-            addItem(url: url.absoluteString, token: token)
+        Task {
+            let message = await TokenHelper.decode(url: url, keyCache: KeyCache.shared)
+            token = message.token
+            verified = message.valid
+            helpfulText = message.error ?? ""
+            if let token = token {
+                addItem(url: url.absoluteString, token: token)
+            }
         }
     }
 

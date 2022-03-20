@@ -1,29 +1,11 @@
 import SwiftUI
 
 struct MemberView: View {
-    let token: Token?
-    let verified: Bool?
-    let errorMessage: String?
+    let url: URL?
 
-    init(token: Token, verified: Bool) {
-        self.token = token
-        self.verified = verified
-        self.errorMessage = nil
-    }
-
-    init(item: Item) {
-        if let url = item.url {
-            let result = TokenHelper.decode(url: url)
-            self.token = result.token
-            self.verified = result.valid
-            self.errorMessage = result.error
-
-        } else {
-            self.token = nil
-            self.verified = nil
-            self.errorMessage = "No URL given"
-        }
-    }
+    @State var token: Token?
+    @State var verified: Bool?
+    @State var errorMessage: String?
 
     var body: some View {
         VStack {
@@ -53,8 +35,20 @@ struct MemberView: View {
                 .cornerRadius(10)
                 .shadow(color: Color(UIColor.quaternaryLabel), radius: 10)
                 .padding()
+            } else if let errorMessage = errorMessage {
+                Text(errorMessage)
             } else {
-                Text(errorMessage ?? "Error")
+                ProgressView("Loading")
+            }
+        }
+        .task {
+            if let url = url {
+                let result = await TokenHelper.decode(url: url, keyCache: KeyCache.shared)
+                self.token = result.token
+                self.verified = result.valid
+                self.errorMessage = result.error
+            } else {
+                self.errorMessage = "No valid URL given"
             }
         }
     }
