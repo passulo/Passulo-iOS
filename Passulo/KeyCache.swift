@@ -65,7 +65,7 @@ class KeyCache: ObservableObject {
                 }
             case 404:
                 print("Key was not found on server")
-                return false
+                return nil
             default:
                 print("Error in HTTP request: \(httpResponse)")
             }
