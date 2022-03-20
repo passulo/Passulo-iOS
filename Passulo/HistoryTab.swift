@@ -12,7 +12,11 @@ struct HistoryTab: View {
             List {
                 ForEach(items) { item in
                     NavigationLink {
-                        MemberView(url: item.url)
+                        if let url = item.url {
+                            MemberView(url: url)
+                        } else {
+                            Text("Error loading entry.")
+                        }
 
                     } label: {
                         HStack {

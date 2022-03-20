@@ -1,15 +1,15 @@
 import SwiftUI
 
 struct MemberView: View {
-    let url: URL?
+    let url: URL
 
-    @State var token: Token?
-    @State var verified: Bool?
+    @State var qrCodeContent: QrCodeContent?
     @State var errorMessage: String?
+    @State var validationResult: ValidationResult?
 
     var body: some View {
         VStack {
-            if let token = token {
+            if let token = qrCodeContent?.token {
                 VStack {
                     VerifiedClaim(title: "Name", value: token.fullname)
                     VerifiedClaim(title: "Vorname", value: token.firstName)
@@ -23,10 +23,31 @@ struct MemberView: View {
                     HStack {
                         Text("Validiert")
                         Spacer()
-                        if verified == true {
-                            Image(systemName: "checkmark.seal").foregroundColor(Color.green)
+
+                        if let validationResult = validationResult {
+                            if validationResult.allValid() {
+                                Image(systemName: "checkmark.seal").foregroundColor(Color.green)
+                            } else {
+                                VStack(alignment: .trailing) {
+                                    Image(systemName: "nosign").foregroundColor(Color.red)
+
+                                    if validationResult.signatureIsValid == false {
+                                        Text("Signature is not valid")
+                                    }
+                                    if validationResult.keyBelongsToAssociation == false {
+                                        Text("The signing key is not allowed to create passes for this association.")
+                                    }
+
+                                    if validationResult.passIsStillValid == nil {
+                                        Text("This pass is not known to the server.")
+                                    }
+                                    if validationResult.passIsStillValid == false {
+                                        Text("This pass is not valid anymore.")
+                                    }
+                                }
+                            }
                         } else {
-                            Image(systemName: "nosign").foregroundColor(Color.red)
+                            ProgressView()
                         }
                     }
                 }
@@ -38,17 +59,33 @@ struct MemberView: View {
             } else if let errorMessage = errorMessage {
                 Text(errorMessage)
             } else {
-                ProgressView("Loading")
+                Text("Unknown Error")
+            }
+        }
+        .onAppear {
+            do {
+                self.qrCodeContent = try TokenHelper.decode(url: url)
+            } catch TokenError.UnsupportedVersion {
+                self.errorMessage = "Unsupported version, result might be incomplete."
+            } catch TokenError.CannotReadToken {
+                self.errorMessage = "Could not read token."
+            } catch TokenError.CannotDecode {
+                self.errorMessage = "Could not decode 'code'."
+            } catch {
+                self.errorMessage = "An error occurred while reading the token."
             }
         }
         .task {
-            if let url = url {
-                let result = await TokenHelper.decode(url: url, keyCache: KeyCache.shared)
-                self.token = result.token
-                self.verified = result.valid
-                self.errorMessage = result.error
-            } else {
-                self.errorMessage = "No valid URL given"
+            if let qrCodeContent = qrCodeContent {
+                do {
+                    self.validationResult = try await TokenHelper.validate(qrCodeContent: qrCodeContent, keyCache: KeyCache.shared)
+                } catch ValidationError.NoSignatureOrKeyId {
+                    self.errorMessage = "The QR Code did not contain a signature or keyId."
+                } catch let ValidationError.KeyNotFound(keyId: keyId) {
+                    self.errorMessage = "The keyId \(keyId) could not be found on the server."
+                } catch {
+                    self.errorMessage = "An error occurred during validation."
+                }
             }
         }
     }

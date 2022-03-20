@@ -5,10 +5,9 @@ import SwiftUI
 struct ScanTab: View {
     @Environment(\.managedObjectContext) private var viewContext
 
-    @State var token: Token? = nil
-    @State var verified: Bool? = nil
+    @State var qrCodeContent: QrCodeContent?
+    @State var validationResult: ValidationResult?
     @State var helpfulText: String = "Scanne einen QR Code mit der Kamera."
-    @State var url: URL? = nil
 
     var body: some View {
         NavigationView {
@@ -17,7 +16,6 @@ struct ScanTab: View {
                     switch response {
                     case .success(let result):
                         if let url = URL(string: result.string) {
-                            self.url = url
                             checkUrl(url: url)
                         } else {
                             helpfulText = "Der Code enthält keine passende URL."
@@ -29,23 +27,27 @@ struct ScanTab: View {
                 .frame(maxHeight: 400)
 
                 VStack {
-                    if let token = token, let verified = verified {
+                    if let qrCodeContent = qrCodeContent {
                         NavigationLink {
-                            MemberView(url: self.url)
+                            MemberView(url: qrCodeContent.url)
                         } label: {
                             VStack {
-                                VerifiedClaim(title: "Name", value: token.fullname)
-                                VerifiedClaim(title: "Mitgliedsnummer", value: token.number)
-                                VerifiedClaim(title: "Verband", value: token.association)
-                                VerifiedClaim(title: "Firma", value: token.company)
-                                VerifiedClaim(title: "Gültig bis", value: token.validUntil.formatted)
+                                VerifiedClaim(title: "Name", value: qrCodeContent.token.fullname)
+                                VerifiedClaim(title: "Mitgliedsnummer", value: qrCodeContent.token.number)
+                                VerifiedClaim(title: "Verband", value: qrCodeContent.token.association)
+                                VerifiedClaim(title: "Firma", value: qrCodeContent.token.company)
+                                VerifiedClaim(title: "Gültig bis", value: qrCodeContent.token.validUntil.formatted)
                                 HStack {
                                     Text("Validiert")
                                     Spacer()
-                                    if verified == true {
-                                        Image(systemName: "checkmark.seal").foregroundColor(Color.green)
+                                    if let validationResult = validationResult {
+                                        if validationResult.allValid() {
+                                            Image(systemName: "checkmark.seal").foregroundColor(Color.green)
+                                        } else {
+                                            Image(systemName: "nosign").foregroundColor(Color.red)
+                                        }
                                     } else {
-                                        Image(systemName: "nosign").foregroundColor(Color.red)
+                                        ProgressView()
                                     }
                                 }
                                 Text(helpfulText)
@@ -71,14 +73,32 @@ struct ScanTab: View {
     }
 
     private func checkUrl(url: URL) {
-        Task {
-            let message = await TokenHelper.decode(url: url, keyCache: KeyCache.shared)
-            token = message.token
-            verified = message.valid
-            helpfulText = message.error ?? ""
-            if let token = token {
-                addItem(url: url.absoluteString, token: token)
+        do {
+            qrCodeContent = try TokenHelper.decode(url: url)
+            if let qrCodeContent = qrCodeContent {
+                helpfulText = ""
+                addItem(url: url.absoluteString, token: qrCodeContent.token)
+
+                Task {
+                    do {
+                        validationResult = try await TokenHelper.validate(qrCodeContent: qrCodeContent, keyCache: KeyCache.shared)
+                    } catch ValidationError.NoSignatureOrKeyId {
+                        helpfulText = "The QR Code did not contain a signature or keyId."
+                    } catch ValidationError.KeyNotFound(keyId: let keyId) {
+                        helpfulText = "The keyId \(keyId) could not be found on the server."
+                    } catch {
+                        helpfulText = "An error occurred during validation."
+                    }
+                }
             }
+        } catch TokenError.UnsupportedVersion {
+            helpfulText = "Unsupported version, result might be incomplete."
+        } catch TokenError.CannotReadToken {
+            helpfulText = "Could not read token."
+        } catch TokenError.CannotDecode {
+            helpfulText = "Could not decode 'code'."
+        } catch {
+            helpfulText = "An error occurred while reading the token."
         }
     }
 
