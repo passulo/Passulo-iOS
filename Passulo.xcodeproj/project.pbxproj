@@ -28,6 +28,7 @@
 		DD4F6A8127BD321F00F1EBDD /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A7F27BD321F00F1EBDD /* MemberView.swift */; };
 		DD4F6A8227BD321F00F1EBDD /* TokenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A8027BD321F00F1EBDD /* TokenHelper.swift */; };
 		DD4F6A8427BD396E00F1EBDD /* TokenExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4F6A8327BD396E00F1EBDD /* TokenExtensions.swift */; };
+		DD9FE18927EF19F10088F595 /* ValidityField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9FE18827EF19F10088F595 /* ValidityField.swift */; };
 		DDA8CAFE27D3DEA6005B08D0 /* KeyCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA8CAFD27D3DEA6005B08D0 /* KeyCache.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		DD4F6A7F27BD321F00F1EBDD /* MemberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		DD4F6A8027BD321F00F1EBDD /* TokenHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenHelper.swift; sourceTree = "<group>"; };
 		DD4F6A8327BD396E00F1EBDD /* TokenExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExtensions.swift; sourceTree = "<group>"; };
+		DD9FE18827EF19F10088F595 /* ValidityField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidityField.swift; sourceTree = "<group>"; };
 		DDA8CAFD27D3DEA6005B08D0 /* KeyCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +146,7 @@
 				DD4F6A7B27BD31F800F1EBDD /* ScanTab.swift */,
 				DD4F6A7A27BD31F800F1EBDD /* VerifiedClaim.swift */,
 				DD4F6A7F27BD321F00F1EBDD /* MemberView.swift */,
+				DD9FE18827EF19F10088F595 /* ValidityField.swift */,
 				DD4F6A8327BD396E00F1EBDD /* TokenExtensions.swift */,
 				DD4F6A8027BD321F00F1EBDD /* TokenHelper.swift */,
 				DD2B9CCF27C2B9620081DA83 /* token.pb.swift */,
@@ -336,6 +339,7 @@
 				DD3D3CD527E77EA300AAB48D /* URL.swift in Sources */,
 				DD2B9CD027C2B9620081DA83 /* token.pb.swift in Sources */,
 				DD4F6A8127BD321F00F1EBDD /* MemberView.swift in Sources */,
+				DD9FE18927EF19F10088F595 /* ValidityField.swift in Sources */,
 				DD4F6A7E27BD31F800F1EBDD /* ScanTab.swift in Sources */,
 				DD4F6A3C27BD2BB700F1EBDD /* PassuloApp.swift in Sources */,
 				DD4F6A7D27BD31F800F1EBDD /* VerifiedClaim.swift in Sources */,

@@ -14,7 +14,7 @@ extension String {
 }
 
 extension Token {
-    var fullname: String? {
+    var fullname: String {
         switch (pronoun(gender.nilIfEmpty()), firstName.nilIfEmpty(), middleName.nilIfEmpty(), lastName.nilIfEmpty()) {
         case (_, .some(let f), .some(let m), .some(let l)): return "\(f) \(m) \(l)"
         case (_, .some(let f), .none, .some(let l)): return "\(f) \(l)"
@@ -31,6 +31,13 @@ extension Token {
         case .some("d"): return NSLocalizedString("Mx.", comment: "honorific for neutral")
         default: return nil
         }
+    }
+
+    var phoneUrl: URL? {
+        var telUrl = URLComponents()
+        telUrl.scheme = "tel"
+        telUrl.path = telephone
+        return telUrl.url
     }
 }
 

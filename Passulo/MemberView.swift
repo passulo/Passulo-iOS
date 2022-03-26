@@ -8,58 +8,59 @@ struct MemberView: View {
     @State var validationResult: ValidationResult?
 
     var body: some View {
-        VStack {
-            if let token = qrCodeContent?.token {
+        ZStack {
+            Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.all)
+            ScrollView {
                 VStack {
-                    VerifiedClaim(title: "Name", value: token.fullname)
-                    VerifiedClaim(title: "Vorname", value: token.firstName)
-                    VerifiedClaim(title: "Mittelname", value: token.middleName)
-                    VerifiedClaim(title: "Nachname", value: token.lastName)
-                    VerifiedClaim(title: "Gender", value: token.gender)
-                    VerifiedClaim(title: "Mitgliedsnummer", value: token.number)
-                    VerifiedClaim(title: "Verband", value: token.association)
-                    VerifiedClaim(title: "Firma", value: token.company)
-                    VerifiedClaim(title: "Gültig bis", value: token.validUntil.formatted)
-                    HStack {
-                        Text("Validiert")
-                        Spacer()
+                    if let token = qrCodeContent?.token {
+                        VStack(alignment: .leading, spacing: 30) {
+                            VStack(alignment: .leading, spacing: 10) {
+                                Text(token.fullname).font(.title)
+                                Text(token.company).font(.title2)
+                            }
+                            VStack(alignment: .leading, spacing: 10) {
+                                if let url = URL(string: "mailto:\(token.email)") {
+                                    Link(destination: url, label: { Text(token.email) })
+                                }
 
-                        if let validationResult = validationResult {
-                            if validationResult.allValid() {
-                                Image(systemName: "checkmark.seal").foregroundColor(Color.green)
-                            } else {
-                                VStack(alignment: .trailing) {
-                                    Image(systemName: "nosign").foregroundColor(Color.red)
-
-                                    if validationResult.signatureIsValid == false {
-                                        Text("Signature is not valid")
-                                    }
-                                    if validationResult.keyBelongsToAssociation == false {
-                                        Text("The signing key is not allowed to create passes for this association.")
-                                    }
-
-                                    if validationResult.passIsStillValid == nil {
-                                        Text("This pass is not known to the server.")
-                                    }
-                                    if validationResult.passIsStillValid == false {
-                                        Text("This pass is not valid anymore.")
-                                    }
+                                if let url = token.phoneUrl {
+                                    Link(destination: url, label: { Text(token.telephone) })
+                                } else {
+                                    Text(token.telephone)
                                 }
                             }
-                        } else {
-                            ProgressView()
+
+                            if let number = token.number,
+                               let association = token.association
+                            {
+                                VStack(alignment: .leading, spacing: 10) {
+                                    Text("Mitglied \(number)")
+                                    Text(association)
+                                }
+                            }
+
+                            if let validUntil = token.validUntil,
+                               let validSince = token.memberSince
+                            {
+                                VStack(alignment: .leading, spacing: 10) {
+                                    Text("Mitglied seit \(validSince.formatted)")
+                                    Text("Gültig bis \(validUntil.formatted)")
+                                }
+                            }
+
+                            ValidityField(validationResult: $validationResult)
                         }
+                        .padding(20)
+                        .background(Color(UIColor.tertiarySystemBackground))
+                        .cornerRadius(10)
+                        .shadow(color: Color(UIColor.quaternaryLabel), radius: 10)
+                        .padding(40)
+                    } else if let errorMessage = errorMessage {
+                        Text(errorMessage)
+                    } else {
+                        Text("Unknown Error")
                     }
                 }
-                .padding()
-                .background(Color(UIColor.tertiarySystemBackground))
-                .cornerRadius(10)
-                .shadow(color: Color(UIColor.quaternaryLabel), radius: 10)
-                .padding()
-            } else if let errorMessage = errorMessage {
-                Text(errorMessage)
-            } else {
-                Text("Unknown Error")
             }
         }
         .onAppear {

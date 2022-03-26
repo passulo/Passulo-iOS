@@ -5,6 +5,8 @@ struct ValidationResult {
     var signatureIsValid: Bool
     var keyBelongsToAssociation: Bool
     var passIsStillValid: Bool?
+    var signingAssociation: String
+    var signingServer: String
     func allValid() -> Bool {
         return signatureIsValid && keyBelongsToAssociation && passIsStillValid ?? false
     }
@@ -61,7 +63,9 @@ enum TokenHelper {
                 return ValidationResult(
                     signatureIsValid: pk.isValidSignature(signature, for: qrCodeContent.tokenBytes),
                     keyBelongsToAssociation: pkData.allowedAssociations.contains(qrCodeContent.token.association),
-                    passIsStillValid: await KeyCache.shared.verifyPassId(server: qrCodeContent.url, passId: qrCodeContent.token.id))
+                    passIsStillValid: await KeyCache.shared.verifyPassId(server: qrCodeContent.url, passId: qrCodeContent.token.id),
+                    signingAssociation: qrCodeContent.token.association,
+                    signingServer: qrCodeContent.url.host ?? "")
             } else {
                 throw ValidationError.KeyNotFound(keyId: keyId)
             }
