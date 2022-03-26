@@ -1,3 +1,4 @@
+import Contacts
 import Foundation
 import SwiftProtobuf
 
@@ -38,6 +39,20 @@ extension Token {
         telUrl.scheme = "tel"
         telUrl.path = telephone
         return telUrl.url
+    }
+
+    func toCNContact() -> CNContact {
+        let contact = CNMutableContact()
+        contact.contactType = CNContactType.person
+        contact.givenName = firstName
+        contact.middleName = middleName
+        contact.familyName = lastName
+        contact.emailAddresses.append(CNLabeledValue(label: CNLabelWork, value: email as NSString))
+        contact.phoneNumbers.append(CNLabeledValue(label: CNLabelWork, value: CNPhoneNumber(stringValue: telephone)))
+        contact.organizationName = company
+        contact.note = association
+        
+        return contact
     }
 }
 

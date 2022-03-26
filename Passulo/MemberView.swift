@@ -1,3 +1,4 @@
+import Contacts
 import SwiftUI
 
 struct MemberView: View {
@@ -6,6 +7,7 @@ struct MemberView: View {
     @State var qrCodeContent: QrCodeContent?
     @State var errorMessage: String?
     @State var validationResult: ValidationResult?
+    @State var contactInSheet: CNContact?
 
     var body: some View {
         ZStack {
@@ -48,6 +50,12 @@ struct MemberView: View {
                                 }
                             }
 
+                            Button {
+                                self.contactInSheet = token.toCNContact()
+                            } label: {
+                                Text("Kontakt speichern")
+                            }
+
                             ValidityField(validationResult: $validationResult)
                         }
                         .padding(20)
@@ -63,6 +71,17 @@ struct MemberView: View {
                 }
             }
         }
+        .sheet(item: $contactInSheet, content: { contact in
+            NavigationView {
+                ContactView(contact: contact)
+                    .toolbar {
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button { contactInSheet = nil } label: { Text("Fertig") }
+                        }
+                    }
+            }
+
+        })
         .onAppear {
             do {
                 self.qrCodeContent = try TokenHelper.decode(url: url)
@@ -91,3 +110,5 @@ struct MemberView: View {
         }
     }
 }
+
+extension CNContact: Identifiable {}
