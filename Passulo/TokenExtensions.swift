@@ -5,32 +5,30 @@ import SwiftProtobuf
 typealias Token = Com_Passulo_V1_Token
 
 extension String {
-    func nilIfEmpty() -> String? {
-        if isEmpty {
-            return nil
-        } else {
-            return self
-        }
-    }
+    func nilIfEmpty() -> String? { if isEmpty { nil } else { self } }
 }
 
 extension Token {
     var fullname: String {
-        switch (pronoun(gender.nilIfEmpty()), firstName.nilIfEmpty(), middleName.nilIfEmpty(), lastName.nilIfEmpty()) {
-        case (_, .some(let f), .some(let m), .some(let l)): return "\(f) \(m) \(l)"
-        case (_, .some(let f), .none, .some(let l)): return "\(f) \(l)"
-        case (.some(let g), .none, .none, .some(let l)): return "\(g) \(l)"
-        case (.none, .none, .none, .some(let l)): return "\(l)"
-        default: return "<no name>"
+        switch (pronoun(gender), firstName.nilIfEmpty(), middleName.nilIfEmpty(), lastName.nilIfEmpty()) {
+            case let (_, .some(f), .some(m), .some(l)): "\(f) \(m) \(l)"
+            case let (_, .some(f), .none, .some(l)): "\(f) \(l)"
+            case let (.some(g), .none, .none, .some(l)): "\(g) \(l)"
+            case let (.none, .none, .none, .some(l)): "\(l)"
+            default: "<no name>"
         }
     }
 
-    func pronoun(_ gender: String?) -> String? {
+    func pronoun(_ gender: Com_Passulo_V1_Token.Gender) -> String? {
         switch gender {
-        case .some("m"): return NSLocalizedString("Mr.", comment: "honorific for male")
-        case .some("f"): return NSLocalizedString("Ms.", comment: "honorific for female")
-        case .some("d"): return NSLocalizedString("Mx.", comment: "honorific for neutral")
-        default: return nil
+            case .female:
+                NSLocalizedString("Ms.", comment: "honorific for female")
+            case .male:
+                NSLocalizedString("Mr.", comment: "honorific for male")
+            case .diverse:
+                NSLocalizedString("Mx.", comment: "honorific for neutral")
+
+            default: nil
         }
     }
 
@@ -51,7 +49,7 @@ extension Token {
         contact.phoneNumbers.append(CNLabeledValue(label: CNLabelWork, value: CNPhoneNumber(stringValue: telephone)))
         contact.organizationName = company
         contact.note = association
-        
+
         return contact
     }
 }

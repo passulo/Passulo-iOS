@@ -8,7 +8,7 @@ struct ValidationResult {
     var signingAssociation: String
     var signingServer: String
     func allValid() -> Bool {
-        return signatureIsValid && keyBelongsToAssociation && passIsStillValid ?? false
+        signatureIsValid && keyBelongsToAssociation && passIsStillValid ?? false
     }
 }
 
@@ -42,8 +42,7 @@ enum TokenHelper {
                 let decodedSig = signature.flatMap { sig in Data(base64urlEncoded: sig) }
                 let keyid = queryItems.first(where: { $0.name == "kid" })?.value
                 return QrCodeContent(url: url, token: token, tokenBytes: tokenBytes, signature: decodedSig, keyId: keyid)
-            } else if let version = queryItems.first(where: { $0.name == "v" })?.value, version != "1"
-            {
+            } else if let version = queryItems.first(where: { $0.name == "v" })?.value, version != "1" {
                 throw TokenError.UnsupportedVersion
 
             } else {
@@ -60,12 +59,13 @@ enum TokenHelper {
         {
             if let pkData = await keyCache.getInfoFor(server: qrCodeContent.url, keyId: keyId) {
                 let pk = try! Curve25519.Signing.PublicKey(rawRepresentation: pkData.binaryKey)
-                return ValidationResult(
+                return await ValidationResult(
                     signatureIsValid: pk.isValidSignature(signature, for: qrCodeContent.tokenBytes),
                     keyBelongsToAssociation: pkData.allowedAssociations.contains(qrCodeContent.token.association),
-                    passIsStillValid: await KeyCache.shared.verifyPassId(server: qrCodeContent.url, passId: qrCodeContent.token.id),
+                    passIsStillValid: KeyCache.shared.verifyPassId(server: qrCodeContent.url, passId: qrCodeContent.token.id),
                     signingAssociation: qrCodeContent.token.association,
-                    signingServer: qrCodeContent.url.host ?? "")
+                    signingServer: qrCodeContent.url.host ?? ""
+                )
             } else {
                 throw ValidationError.KeyNotFound(keyId: keyId)
             }
@@ -78,6 +78,6 @@ enum TokenHelper {
 extension Collection {
     /// Returns the element at the specified index if it is within bounds, otherwise nil.
     subscript(safe index: Index) -> Element? {
-        return indices.contains(index) ? self[index] : nil
+        indices.contains(index) ? self[index] : nil
     }
 }

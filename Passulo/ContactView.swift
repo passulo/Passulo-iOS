@@ -11,7 +11,7 @@ import SwiftUI
 
 struct ContactView: UIViewControllerRepresentable {
     func makeCoordinator() -> Coordinator {
-        return Coordinator(self)
+        Coordinator(self)
     }
 
     typealias UIViewControllerType = CNContactViewController
@@ -26,20 +26,20 @@ struct ContactView: UIViewControllerRepresentable {
         return vc
     }
 
-    func updateUIViewController(_ uiViewController: CNContactViewController, context: Context) {}
+    func updateUIViewController(_: CNContactViewController, context _: Context) {}
 
     class Coordinator: NSObject, CNContactViewControllerDelegate {
         var parent: ContactView
 
         init(_ contactDetail: ContactView) {
-            self.parent = contactDetail
+            parent = contactDetail
         }
 
-        func contactViewController(_ viewController: CNContactViewController, shouldPerformDefaultActionFor property: CNContactProperty) -> Bool {
-            return true
+        func contactViewController(_: CNContactViewController, shouldPerformDefaultActionFor _: CNContactProperty) -> Bool {
+            true
         }
 
-        func contactViewController(_ viewController: CNContactViewController, didCompleteWith contact: CNContact?) {
+        func contactViewController(_ viewController: CNContactViewController, didCompleteWith _: CNContact?) {
             viewController.dismiss(animated: true)
         }
     }

@@ -52,22 +52,22 @@ class KeyCache: ObservableObject {
             let httpResponse = response as! HTTPURLResponse
 
             switch httpResponse.statusCode {
-            case 200:
-                switch String(data: data, encoding: .utf8) {
-                case .none:
-                    print("Could not parse server response \(data)")
+                case 200:
+                    switch String(data: data, encoding: .utf8) {
+                        case .none:
+                            print("Could not parse server response \(data)")
+                            return nil
+                        case .some("true"): return true
+                        case .some("false"): return false
+                        case let .some(res):
+                            print("Server response is unexpected: \(res)")
+                            return nil
+                    }
+                case 404:
+                    print("Key was not found on server")
                     return nil
-                case .some("true"): return true
-                case .some("false"): return false
-                case .some(let res):
-                    print("Server response is unexpected: \(res)")
-                    return nil
-                }
-            case 404:
-                print("Key was not found on server")
-                return nil
-            default:
-                print("Error in HTTP request: \(httpResponse)")
+                default:
+                    print("Error in HTTP request: \(httpResponse)")
             }
 
         } catch {
@@ -95,12 +95,12 @@ class KeyCache: ObservableObject {
             let httpResponse = response as! HTTPURLResponse
 
             switch httpResponse.statusCode {
-            case 200:
-                let responseData: ServerKeys = try JSONDecoder().decode(ServerKeys.self, from: data)
-                keys[server] = responseData
+                case 200:
+                    let responseData: ServerKeys = try JSONDecoder().decode(ServerKeys.self, from: data)
+                    keys[server] = responseData
 
-            default:
-                print("Error in HTTP request: \(httpResponse)")
+                default:
+                    print("Error in HTTP request: \(httpResponse)")
             }
 
         } catch {

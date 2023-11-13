@@ -10,7 +10,7 @@ import SwiftUI
 struct ValidityField: View {
     @Binding var validationResult: ValidationResult?
     var body: some View {
-        if let validationResult = validationResult {
+        if let validationResult {
             if validationResult.allValid() {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
@@ -64,9 +64,9 @@ struct SignatureDetails: View {
         }
 
         switch validationResult.passIsStillValid {
-        case .some(let valid) where valid: Text("• Ausweis ist nicht wiederrufen").font(.caption).foregroundColor(Color.green)
-        case .some: Text("• Ausweis ist wiederrufen").font(.caption).foregroundColor(Color.red)
-        case .none: Text("• Ausweis ist unbekannt").font(.caption).foregroundColor(Color.red)
+            case let .some(valid) where valid: Text("• Ausweis ist nicht wiederrufen").font(.caption).foregroundColor(Color.green)
+            case .some: Text("• Ausweis ist wiederrufen").font(.caption).foregroundColor(Color.red)
+            case .none: Text("• Ausweis ist unbekannt").font(.caption).foregroundColor(Color.red)
         }
     }
 }

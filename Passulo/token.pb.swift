@@ -25,6 +25,7 @@ struct Com_Passulo_V1_Token {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// identifier for this token only
   var id: String = String()
 
   var firstName: String = String()
@@ -33,7 +34,7 @@ struct Com_Passulo_V1_Token {
 
   var lastName: String = String()
 
-  var gender: String = String()
+  var gender: Com_Passulo_V1_Token.Gender = .undefined
 
   var number: String = String()
 
@@ -67,11 +68,64 @@ struct Com_Passulo_V1_Token {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  enum Gender: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case undefined // = 0
+    case female // = 1
+    case male // = 2
+    case diverse // = 3
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .undefined
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .undefined
+      case 1: self = .female
+      case 2: self = .male
+      case 3: self = .diverse
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .undefined: return 0
+      case .female: return 1
+      case .male: return 2
+      case .diverse: return 3
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   init() {}
 
   fileprivate var _validUntil: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
   fileprivate var _memberSince: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
+
+#if swift(>=4.2)
+
+extension Com_Passulo_V1_Token.Gender: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [Com_Passulo_V1_Token.Gender] = [
+    .undefined,
+    .female,
+    .male,
+    .diverse,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
+#if swift(>=5.5) && canImport(_Concurrency)
+extension Com_Passulo_V1_Token: @unchecked Sendable {}
+extension Com_Passulo_V1_Token.Gender: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
@@ -105,7 +159,7 @@ extension Com_Passulo_V1_Token: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       case 2: try { try decoder.decodeSingularStringField(value: &self.firstName) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.middleName) }()
       case 4: try { try decoder.decodeSingularStringField(value: &self.lastName) }()
-      case 5: try { try decoder.decodeSingularStringField(value: &self.gender) }()
+      case 5: try { try decoder.decodeSingularEnumField(value: &self.gender) }()
       case 6: try { try decoder.decodeSingularStringField(value: &self.number) }()
       case 7: try { try decoder.decodeSingularStringField(value: &self.status) }()
       case 8: try { try decoder.decodeSingularStringField(value: &self.company) }()
@@ -136,8 +190,8 @@ extension Com_Passulo_V1_Token: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     if !self.lastName.isEmpty {
       try visitor.visitSingularStringField(value: self.lastName, fieldNumber: 4)
     }
-    if !self.gender.isEmpty {
-      try visitor.visitSingularStringField(value: self.gender, fieldNumber: 5)
+    if self.gender != .undefined {
+      try visitor.visitSingularEnumField(value: self.gender, fieldNumber: 5)
     }
     if !self.number.isEmpty {
       try visitor.visitSingularStringField(value: self.number, fieldNumber: 6)
@@ -183,4 +237,13 @@ extension Com_Passulo_V1_Token: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
+}
+
+extension Com_Passulo_V1_Token.Gender: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "undefined"),
+    1: .same(proto: "female"),
+    2: .same(proto: "male"),
+    3: .same(proto: "diverse"),
+  ]
 }

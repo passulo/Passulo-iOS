@@ -32,26 +32,22 @@ struct MemberView: View {
                                 }
                             }
 
-                            if let number = token.number,
-                               let association = token.association
-                            {
+                            if !token.number.isEmpty, !token.association.isEmpty {
                                 VStack(alignment: .leading, spacing: 10) {
-                                    Text("Mitglied \(number)")
-                                    Text(association)
+                                    Text("Mitglied \(token.number)")
+                                    Text(token.association)
                                 }
                             }
 
-                            if let validUntil = token.validUntil,
-                               let validSince = token.memberSince
-                            {
+                            if token.hasValidUntil, token.hasMemberSince {
                                 VStack(alignment: .leading, spacing: 10) {
-                                    Text("Mitglied seit \(validSince.formatted)")
-                                    Text("Gültig bis \(validUntil.formatted)")
+                                    Text("Mitglied seit \(token.memberSince.formatted)")
+                                    Text("Gültig bis \(token.validUntil.formatted)")
                                 }
                             }
 
                             Button {
-                                self.contactInSheet = token.toCNContact()
+                                contactInSheet = token.toCNContact()
                             } label: {
                                 Text("Kontakt speichern")
                             }
@@ -63,7 +59,7 @@ struct MemberView: View {
                         .cornerRadius(10)
                         .shadow(color: Color(UIColor.quaternaryLabel), radius: 10)
                         .padding(40)
-                    } else if let errorMessage = errorMessage {
+                    } else if let errorMessage {
                         Text(errorMessage)
                     } else {
                         Text("Unknown Error")
@@ -84,31 +80,29 @@ struct MemberView: View {
         })
         .onAppear {
             do {
-                self.qrCodeContent = try TokenHelper.decode(url: url)
+                qrCodeContent = try TokenHelper.decode(url: url)
             } catch TokenError.UnsupportedVersion {
-                self.errorMessage = "Unsupported version, result might be incomplete."
+                errorMessage = "Unsupported version, result might be incomplete."
             } catch TokenError.CannotReadToken {
-                self.errorMessage = "Could not read token."
+                errorMessage = "Could not read token."
             } catch TokenError.CannotDecode {
-                self.errorMessage = "Could not decode 'code'."
+                errorMessage = "Could not decode 'code'."
             } catch {
-                self.errorMessage = "An error occurred while reading the token."
+                errorMessage = "An error occurred while reading the token."
             }
         }
         .task {
-            if let qrCodeContent = qrCodeContent {
+            if let qrCodeContent {
                 do {
-                    self.validationResult = try await TokenHelper.validate(qrCodeContent: qrCodeContent, keyCache: KeyCache.shared)
+                    validationResult = try await TokenHelper.validate(qrCodeContent: qrCodeContent, keyCache: KeyCache.shared)
                 } catch ValidationError.NoSignatureOrKeyId {
-                    self.errorMessage = "The QR Code did not contain a signature or keyId."
+                    errorMessage = "The QR Code did not contain a signature or keyId."
                 } catch let ValidationError.KeyNotFound(keyId: keyId) {
                     self.errorMessage = "The keyId \(keyId) could not be found on the server."
                 } catch {
-                    self.errorMessage = "An error occurred during validation."
+                    errorMessage = "An error occurred during validation."
                 }
             }
         }
     }
 }
-
-extension CNContact: Identifiable {}

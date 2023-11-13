@@ -14,20 +14,20 @@ struct ScanTab: View {
             VStack(alignment: .center, spacing: 20) {
                 CodeScannerView(codeTypes: [.qr], scanMode: .oncePerCode, showViewfinder: true) { response in
                     switch response {
-                    case .success(let result):
-                        if let url = URL(string: result.string) {
-                            checkUrl(url: url)
-                        } else {
-                            helpfulText = "Der Code enthält keine passende URL."
-                        }
-                    case .failure(let error):
-                        helpfulText = "Es ist ein Problem aufgetreten: \(error.localizedDescription)"
+                        case let .success(result):
+                            if let url = URL(string: result.string) {
+                                checkUrl(url: url)
+                            } else {
+                                helpfulText = "Der Code enthält keine passende URL."
+                            }
+                        case let .failure(error):
+                            helpfulText = "Es ist ein Problem aufgetreten: \(error.localizedDescription)"
                     }
                 }
                 .frame(maxHeight: 400)
 
                 VStack {
-                    if let qrCodeContent = qrCodeContent {
+                    if let qrCodeContent {
                         NavigationLink {
                             MemberView(url: qrCodeContent.url)
                         } label: {
@@ -40,7 +40,7 @@ struct ScanTab: View {
                                 HStack {
                                     Text("Validiert")
                                     Spacer()
-                                    if let validationResult = validationResult {
+                                    if let validationResult {
                                         if validationResult.allValid() {
                                             Image(systemName: "checkmark.seal").foregroundColor(Color.green)
                                         } else {
@@ -75,7 +75,7 @@ struct ScanTab: View {
     private func checkUrl(url: URL) {
         do {
             qrCodeContent = try TokenHelper.decode(url: url)
-            if let qrCodeContent = qrCodeContent {
+            if let qrCodeContent {
                 helpfulText = ""
                 addItem(url: url.absoluteString, token: qrCodeContent.token)
 
@@ -84,7 +84,7 @@ struct ScanTab: View {
                         validationResult = try await TokenHelper.validate(qrCodeContent: qrCodeContent, keyCache: KeyCache.shared)
                     } catch ValidationError.NoSignatureOrKeyId {
                         helpfulText = "The QR Code did not contain a signature or keyId."
-                    } catch ValidationError.KeyNotFound(keyId: let keyId) {
+                    } catch let ValidationError.KeyNotFound(keyId: keyId) {
                         helpfulText = "The keyId \(keyId) could not be found on the server."
                     } catch {
                         helpfulText = "An error occurred during validation."
